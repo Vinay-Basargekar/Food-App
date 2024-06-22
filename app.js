@@ -109,21 +109,22 @@ const Navbar = () => {
 	);
 };
 
-const FoodCard = () => {
+const FoodCard = (props) => {
+    const {resData} = props;
 	return (
 		<div className="card">
 			<img
-				src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/lbye6vascq2ggicljkkw"
-				alt="Wadeshwar"
+				src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+ resData.cloudinaryImageId }
+				alt="card-logo"
 			></img>
 			<div class="card-content">
-				<div class="card-title">Wadeshwar</div>
+				<div class="card-title">{resData.resName}</div>
 				<div class="card-rating">
-					<span>4.3★</span>
-					<span>₹50 for one</span>
+					<span>{resData.rating}★</span>
+					<span>{resData.costForTwo}</span>
 				</div>
 				<div class="card-details">
-					<span>South Indian, Sandwich, F...</span>
+					<span>{resData.cuisine}</span>
 					<span>39 min</span>
 				</div>
 			</div>
@@ -131,17 +132,44 @@ const FoodCard = () => {
 	);
 };
 
+const resList = [
+	{
+		resName: "Meghana Foods",
+		cuisine: "Tea, Beverages, Street Food, Desserts, Coffee",
+		rating: "4.6",
+		costForTwo: "₹200 for two",
+		cloudinaryImageId: "63dd75492c47fcec191132b8eb299ea5",
+	},
+	{
+		resName: "KFC",
+		cuisine: "Burger, Fast Food, Beverage",
+		rating: "3.3",
+		costForTwo: "₹200 for two",
+		cloudinaryImageId: "5116a385bac0548e06c33c08350fbf11",
+	},
+	{
+		resName: "McDonald's",
+		cuisine: "Burger, Fast Food, Dessert",
+		rating: "4.6",
+		costForTwo: "₹200 for two",
+		cloudinaryImageId: "af33b81798b11deba338e94b7585d348",
+	},
+	{
+		resName: "Dominos",
+		cuisine: "South Indian, Sandwich, Shake, Juices, Beverages",
+		rating: "3.8",
+		costForTwo: "₹200 for two",
+		cloudinaryImageId: "a4ffed13eb197c6df43dfe1c756560e5",
+	},
+];
+
+
 const Body = () => {
 	return (
 		<div className="card-container">
-			<FoodCard />
-			<FoodCard />
-			<FoodCard />
-			<FoodCard />
-			<FoodCard />
-			<FoodCard />
-			<FoodCard />
-			<FoodCard />
+			{resList.map((res) => (
+				<FoodCard key={res.resName} resData={res} />
+			))}
 		</div>
 	);
 };
