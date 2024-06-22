@@ -1,0 +1,159 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+html,
+body {
+	height: 100%;
+	/* if you want 1rem = 10px, easier for calculations */
+	/* font-size: 62.5%; */
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+body {
+	/* line-height: 1.5; */
+	-webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+	font: inherit;
+	outline: none;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+#root,
+#__next {
+	isolation: isolate;
+}
+
+.size {
+	width: 24px;
+	height: 24px;
+	color: #333;
+}
+.size-cart {
+	width: 50px;
+	height: 50px;
+	color: #333;
+	margin-left: 2rem;
+	cursor: pointer;
+}
+
+input[type="text"] {
+	width: 40rem;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-left: 8px;
+	font-size: 14px;
+	outline: none;
+}
+
+input[type="text"]:focus {
+	border-color: #007bff;
+	box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
+}
+
+.search {
+	display: flex;
+	align-items: center;
+	margin-left: 1rem;
+}
+
+.header {
+	display: flex;
+	border: 1px solid #333;
+}
+
+.app-logo {
+	height: 8rem;
+}
+.userLogo {
+	margin-left: 5rem;
+	cursor: pointer;
+}
+
+.nav-tabs {
+	display: flex;
+	align-items: center;
+	margin-left: 3rem;
+}
+
+.nav-tabs > ul {
+	display: flex;
+	list-style-type: none;
+}
+.nav-tabs > ul:hover {
+	cursor: pointer;
+}
+.nav-tabs > ul > li {
+	padding: 1rem;
+}
+
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+	width: 300px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	margin: 20px;
+}
+.card img {
+	width: 100%;
+	height: auto;
+}
+.card-content {
+	padding: 15px;
+}
+.card-title {
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+.card-rating {
+	display: flex;
+	align-items: center;
+	margin-bottom: 8px;
+}
+.card-rating span {
+	background-color: #4caf50;
+	color: white;
+	padding: 5px;
+	border-radius: 4px;
+	margin-right: 10px;
+}
+.card-details {
+	font-size: 0.9em;
+	color: #555;
+}
+.card-details span {
+	margin-right: 10px;
+}
