@@ -115,7 +115,8 @@ input[type="text"]:focus {
 .card-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    /* justify-content: center; */
+    margin-left: 3rem;
 }
 
 .card {
@@ -140,7 +141,7 @@ input[type="text"]:focus {
 }
 .card-rating {
 	display: flex;
-	align-items: center;
+	/* align-items: center; */
 	margin-bottom: 8px;
 }
 .card-rating span {
@@ -156,4 +157,13 @@ input[type="text"]:focus {
 }
 .card-details span {
 	margin-right: 10px;
+}
+
+.filter{
+    margin-left: 4rem;
+    margin-top: 2rem;
+}
+
+.filter-btn{
+    padding: 5px;
 }
