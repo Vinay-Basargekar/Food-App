@@ -1,10 +1,11 @@
 import { useState } from "react";
+
 import resList from "../utils/mockData";
 import FoodCard from "./FoodCard";
 
 const Body = () => {
 
-    let [listOfRestaurants, setlistOfRestaurants] = useState(resList);
+    const [listOfRestaurants, setlistOfRestaurants] = useState(resList);
 
 	return (
 		<>
@@ -12,11 +13,11 @@ const Body = () => {
 				<button
 					className="filter-btn"
 					onClick={() => {
-						listOfRestaurants = listOfRestaurants.filter(
+						const filteredData = listOfRestaurants.filter(
                             (res) => res.rating > 4.5
                         );
-                        setlistOfRestaurants(listOfRestaurants);
-                        console.log(listOfRestaurants);
+                        setlistOfRestaurants(filteredData);
+                        // console.log(listOfRestaurants);
 					}}
 				>
 					Highly Rated
@@ -24,7 +25,7 @@ const Body = () => {
 			</div>
 			<div className="card-container">
 				{listOfRestaurants.map((res) => (
-					<FoodCard key={res.resName} resData={res} />
+					<FoodCard key={res.id} resData={res} />
 				))}
 			</div>
 		</>

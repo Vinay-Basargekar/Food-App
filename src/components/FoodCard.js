@@ -1,21 +1,19 @@
 import { FOOD_IMAGES } from "../utils/constants";
 
-const FoodCard = (props) => {
-	const { resData } = props;
+const FoodCard = ({
+	resData: { resName, rating, costForTwo, cuisine, cloudinaryImageId },
+}) => {
 	return (
 		<div className="card">
-			<img
-				src={FOOD_IMAGES  + resData.cloudinaryImageId}
-				alt="card-logo"
-			></img>
+			<img src={FOOD_IMAGES + cloudinaryImageId} alt="card-logo" />
 			<div className="card-content">
-				<div className="card-title">{resData.resName}</div>
+				<div className="card-title">{resName}</div>
 				<div className="card-rating">
-					<span>{resData.rating}★</span>
-					<span>{resData.costForTwo}</span>
+					<span>{rating}★</span>
+					<span>{costForTwo}</span>
 				</div>
 				<div className="card-details">
-					<span>{resData.cuisine}</span>
+					<span>{cuisine}</span>
 					<span>39 min</span>
 				</div>
 			</div>
