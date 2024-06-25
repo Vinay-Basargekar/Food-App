@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import FoodCard from "./FoodCard";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
+	const [listOfRestaurants, setlistOfRestaurants] = useState([]);
 
-    const [listOfRestaurants, setlistOfRestaurants] = useState([]);
-
-	useEffect(()=>{
+	useEffect(() => {
 		fetchData();
-	},[]);
+	}, []);
 
 	const fetchData = async () => {
 		const response = await fetch(
@@ -23,17 +23,19 @@ const Body = () => {
 		setlistOfRestaurants(restaurants);
 	};
 
-	return (
+	return listOfRestaurants.length === 0 ? (
+		<Shimmer />
+	) : (
 		<>
 			<div className="filter">
 				<button
 					className="filter-btn"
 					onClick={() => {
 						const filteredData = listOfRestaurants.filter(
-                            (res) => res.avgRating > 4.3
-                        );
-                        setlistOfRestaurants(filteredData);
-                        // console.log(listOfRestaurants);
+							(res) => res.avgRating > 4.3
+						);
+						setlistOfRestaurants(filteredData);
+						// console.log(listOfRestaurants);
 					}}
 				>
 					Highly Rated
@@ -42,7 +44,8 @@ const Body = () => {
 			<div className="card-container">
 				{listOfRestaurants.map((res) => (
 					<FoodCard key={res.id} resData={res} />
-				))};
+				))}
+				;
 			</div>
 		</>
 	);

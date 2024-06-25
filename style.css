@@ -115,13 +115,13 @@ input[type="text"]:focus {
 	padding: 1rem;
 }
 
+/* FoodCard.css */
+
 .card-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-
-/* FoodCard.css */
 
 .card {
     border: 1px solid #ddd;
@@ -167,3 +167,82 @@ input[type="text"]:focus {
 .filter-btn{
     padding: 5px;
 }
+
+/* Shimmer effect styling */
+
+/* Adjusted shimmer effect styling to match card styling */
+.shimmer-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.shimmer {
+    width: 300px;
+    margin: 16px;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.shimmer-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(
+        to right,
+        #f0f0f0 0%,
+        #e0e0e0 20%,
+        #f0f0f0 40%,
+        #f0f0f0 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+.shimmer-content {
+    padding: 16px;
+}
+
+.shimmer-title,
+.shimmer-rating,
+.shimmer-details {
+    background: linear-gradient(
+        to right,
+        #f0f0f0 0%,
+        #e0e0e0 20%,
+        #f0f0f0 40%,
+        #f0f0f0 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+.shimmer-title {
+    height: 20px;
+    width: 60%;
+}
+
+.shimmer-rating {
+    height: 20px;
+    width: 40%;
+}
+
+.shimmer-details {
+    height: 20px;
+    width: 80%;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
