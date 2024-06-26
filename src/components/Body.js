@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import FoodCard from "./FoodCard";
-import Shimmer from "./Shimmer";
+import Shimmer from "./shimmer";
 
 const Body = () => {
 	const [listOfRestaurants, setListOfRestaurants] = useState([]);
