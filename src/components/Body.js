@@ -3,7 +3,10 @@ import FoodCard from "./FoodCard";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
-	const [listOfRestaurants, setlistOfRestaurants] = useState([]);
+	const [listOfRestaurants, setListOfRestaurants] = useState([]);
+	const [filteredData, setFilteredData] = useState([]);
+
+	const [search, setSearch] = useState("");
 
 	useEffect(() => {
 		fetchData();
@@ -20,32 +23,67 @@ const Body = () => {
 				(res) => res.info
 			);
 
-		setlistOfRestaurants(restaurants);
+		setListOfRestaurants(restaurants);
+		setFilteredData(restaurants);
 	};
 
 	return listOfRestaurants.length === 0 ? (
 		<Shimmer />
 	) : (
 		<>
-			<div className="filter">
-				<button
-					className="filter-btn"
-					onClick={() => {
-						const filteredData = listOfRestaurants.filter(
-							(res) => res.avgRating > 4.3
-						);
-						setlistOfRestaurants(filteredData);
-						// console.log(listOfRestaurants);
-					}}
-				>
-					Highly Rated
-				</button>
+			<div className="search-container">
+				<div className="search">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						strokeWidth="1.5"
+						stroke="currentColor"
+						className="size"
+					>
+						<path
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+						/>
+					</svg>
+					<input
+						type="text"
+						placeholder="Search..."
+						value={search}
+						onChange={(e) => {
+							setSearch(e.target.value);
+						}}
+					/>
+					<button className="search-btn"
+						onClick={() => {
+							const filtered = listOfRestaurants.filter((res) =>
+								res.name.toLowerCase().includes(search.toLowerCase())
+							);
+							setFilteredData(filtered);
+						}}
+					>
+						Search
+					</button>
+				</div>
+				<div className="filter">
+					<button
+						className="filter-btn"
+						onClick={() => {
+							const filteredData = listOfRestaurants.filter(
+								(res) => res.avgRating > 4.3
+							);
+							setListOfRestaurants(filteredData);
+						}}
+					>
+						Highly Rated
+					</button>
+				</div>
 			</div>
 			<div className="card-container">
-				{listOfRestaurants.map((res) => (
+				{filteredData.map((res) => (
 					<FoodCard key={res.id} resData={res} />
 				))}
-				;
 			</div>
 		</>
 	);

@@ -5,23 +5,6 @@ const Navbar = () => {
 	return (
 		<div className="header">
 			<img src={APP_LOGO} alt="app-logo" className="app-logo" />
-			<div className="search">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					strokeWidth="1.5"
-					stroke="currentColor"
-					className="size"
-				>
-					<path
-						strokeLinecap="round"
-						strokeLinejoin="round"
-						d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-					/>
-				</svg>
-				<input type="text" placeholder="Search..."></input>
-			</div>
 			<div className="nav-right">
 				<div className="nav-tabs">
 					<ul>
@@ -78,7 +61,7 @@ const Navbar = () => {
 									d="M15 19c2 1 4 1 6 0"
 									stroke="#000000"
 									fill="none"
-									stroke-linecap="round"
+									strokeLinecap="round"
 								></path>
 								<rect
 									x="10"
