@@ -84,7 +84,6 @@ input[type="text"]:focus {
 
 .header {
 	display: flex;
-	/* gap: 1rem; */
 	justify-content: space-evenly;
 	align-items:center;
 	border: 1px solid #333;
@@ -101,7 +100,6 @@ input[type="text"]:focus {
 .nav-tabs {
 	display: flex;
 	align-items: center;
-	/* justify-content: end; */
 	margin-left: 3rem;
 }
 
@@ -116,58 +114,134 @@ input[type="text"]:focus {
 	padding: 1rem;
 }
 
+/* FoodCard.css */
+
 .card-container{
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: center; */
-    margin-left: 3rem;
+    justify-content: center;
 }
 
 .card {
-	width: 300px;
-	border: 1px solid #ccc;
-	border-radius: 8px;
-	overflow: hidden;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-	margin: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 16px;
+    width: 300px; 
 }
-.card img {
-	width: 100%;
-	height: auto;
+
+.food-img {
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
 }
+
 .card-content {
-	padding: 15px;
+    padding: 16px;
 }
+
 .card-title {
-	font-size: 1.2em;
-	font-weight: bold;
-	margin-bottom: 8px;
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 8px;
 }
-.card-rating {
-	display: flex;
-	/* align-items: center; */
-	margin-bottom: 8px;
+
+.card-rating, .card-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
 }
-.card-rating span {
-	background-color: #4caf50;
+
+.rating{
+	background-color: green;
 	color: white;
-	padding: 5px;
-	border-radius: 4px;
-	margin-right: 10px;
-}
-.card-details {
-	font-size: 0.9em;
-	color: #555;
-}
-.card-details span {
-	margin-right: 10px;
+	padding: 3px;
 }
 
 .filter{
-    margin-left: 4rem;
+    margin-left: 5%;
     margin-top: 2rem;
 }
 
 .filter-btn{
     padding: 5px;
 }
+
+/* Shimmer effect styling */
+
+/* Adjusted shimmer effect styling to match card styling */
+.shimmer-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.shimmer {
+    width: 300px;
+    margin: 16px;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.shimmer-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(
+        to right,
+        #f0f0f0 0%,
+        #e0e0e0 20%,
+        #f0f0f0 40%,
+        #f0f0f0 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+.shimmer-content {
+    padding: 16px;
+}
+
+.shimmer-title,
+.shimmer-rating,
+.shimmer-details {
+    background: linear-gradient(
+        to right,
+        #f0f0f0 0%,
+        #e0e0e0 20%,
+        #f0f0f0 40%,
+        #f0f0f0 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+.shimmer-title {
+    height: 20px;
+    width: 60%;
+}
+
+.shimmer-rating {
+    height: 20px;
+    width: 40%;
+}
+
+.shimmer-details {
+    height: 20px;
+    width: 80%;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
