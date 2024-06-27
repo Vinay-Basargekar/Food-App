@@ -14,7 +14,7 @@ const Body = () => {
 
 	const fetchData = async () => {
 		const response = await fetch(
-			"https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+			"https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.6700628&lng=73.73160419999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
 		);
 		const data = await response.json();
 
@@ -70,10 +70,10 @@ const Body = () => {
 					<button
 						className="filter-btn"
 						onClick={() => {
-							const filteredData = listOfRestaurants.filter(
-								(res) => res.avgRating > 4.3
+							const filteredDat = listOfRestaurants.filter(
+								(res) => res.avgRating > 4.5
 							);
-							setListOfRestaurants(filteredData);
+							setFilteredData(filteredDat);
 						}}
 					>
 						Highly Rated
