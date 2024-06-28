@@ -188,10 +188,9 @@ input[type="text"]:focus {
 .search-container{
 	display: flex;
 	align-items: center;
-	margin: 1rem 8rem 1rem 6rem;
+	margin: 1rem 5rem 1rem 2rem;
 	justify-content: space-between;
 }
-
 
 /* Shimmer effect styling */
 
@@ -269,4 +268,40 @@ input[type="text"]:focus {
         background-position: 200% 0;
     }
 }
+
+/* About us */
+
+.about-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+.about-container h1, .about-container h2 {
+  color: #333;
+}
+
+.about-container p {
+  line-height: 1.6;
+}
+
+.about-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.about-container ul li {
+  margin-bottom: 10px;
+}
+
+.about-container a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.about-container a:hover {
+  text-decoration: underline;
+}
+
 
