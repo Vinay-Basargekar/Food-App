@@ -13,19 +13,32 @@ const Body = () => {
 	}, []);
 
 	const fetchData = async () => {
-		const response = await fetch(
-			"https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.6700628&lng=73.73160419999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-		);
-		const data = await response.json();
-
-		const restaurants =
-			data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants.map(
-				(res) => res.info
+		try {
+			const response = await fetch(
+				"https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.6700628&lng=73.73160419999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
 			);
 
-		setListOfRestaurants(restaurants);
-		setFilteredData(restaurants);
+			if (!response.ok) {
+				throw new Error("Network response was not ok" + response.statusText);
+			}
+
+			const data = await response.json();
+			const restaurantCards = data?.data?.cards?.find(
+				(card) => card.card.card.gridElements
+			)?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+			if (!restaurantCards) {
+				throw new Error("Failed to extract restaurant data");
+			}
+
+			const restaurants = restaurantCards.map((restaurant) => restaurant.info);
+			setListOfRestaurants(restaurants);
+			setFilteredData(restaurants);
+		} catch (error) {
+			console.error("Fetching data failed:", error);
+		}
 	};
+
 
 	return listOfRestaurants.length === 0 ? (
 		<Shimmer />
