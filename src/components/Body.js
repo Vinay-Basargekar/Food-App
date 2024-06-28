@@ -15,7 +15,7 @@ const Body = () => {
 	const fetchData = async () => {
 		try {
 			const response = await fetch(
-				"https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.6700628&lng=73.73160419999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+				"https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.6860277&lng=73.74771419999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
 			);
 
 			if (!response.ok) {
@@ -23,9 +23,8 @@ const Body = () => {
 			}
 
 			const data = await response.json();
-			const restaurantCards = data?.data?.cards?.find(
-				(card) => card.card.card.gridElements
-			)?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+			const restaurantCards =
+				data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants;
 
 			if (!restaurantCards) {
 				throw new Error("Failed to extract restaurant data");
