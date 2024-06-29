@@ -38,7 +38,7 @@ const BrowserRouter = createBrowserRouter([
 				element: <Contact />,
 			},
 			{
-				path: "/restaurants/:resdata",
+				path: "/restaurants/:resId",
 				element: <Restaurant />,
 			},
 		],

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import FoodCard from "./FoodCard";
 import Shimmer from "./shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
 	const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -15,7 +16,7 @@ const Body = () => {
 	const fetchData = async () => {
 		try {
 			const response = await fetch(
-				"https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.528913&lng=73.87441989999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+				"https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
 			);
 
 			if (!response.ok) {
@@ -25,6 +26,8 @@ const Body = () => {
 			const data = await response.json();
 			const restaurantCards =
 				data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants;
+
+			
 
 			if (!restaurantCards) {
 				throw new Error("Failed to extract restaurant data");
@@ -67,7 +70,8 @@ const Body = () => {
 							setSearch(e.target.value);
 						}}
 					/>
-					<button className="search-btn"
+					<button
+						className="search-btn"
 						onClick={() => {
 							const filtered = listOfRestaurants.filter((res) =>
 								res.name.toLowerCase().includes(search.toLowerCase())
@@ -83,7 +87,7 @@ const Body = () => {
 						className="filter-btn"
 						onClick={() => {
 							const filteredDat = listOfRestaurants.filter(
-								(res) => res.avgRating > 4.5
+								(res) => res.avgRating > 4.3
 							);
 							setFilteredData(filteredDat);
 						}}
@@ -94,7 +98,9 @@ const Body = () => {
 			</div>
 			<div className="card-container">
 				{filteredData.map((res) => (
-					<FoodCard key={res.id} resData={res} />
+					<Link key={res.id} to={"./restaurants/" + res.id} style={{ textDecoration: "none" }}>
+						<FoodCard resData={res} />
+					</Link>
 				))}
 			</div>
 		</>
