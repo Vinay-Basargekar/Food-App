@@ -7,6 +7,7 @@ import Body from "./components/Body";
 import About from "./components/about";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
+import Restaurant from "./components/Restaurant";
 
 
 const FoodApp = () => {
@@ -35,6 +36,10 @@ const BrowserRouter = createBrowserRouter([
 			{
 				path: "/contact",
 				element: <Contact />,
+			},
+			{
+				path: "/restaurants/:resdata",
+				element: <Restaurant />,
 			},
 		],
 	},

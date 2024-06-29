@@ -167,7 +167,7 @@ input[type="text"]:focus {
 	border-radius: 8px;
 	overflow: hidden;
 	margin: 16px;
-	width: 300px;
+	width: 330px;
 	transition: transform 0.3s ease;
     cursor: pointer;
 }
@@ -228,7 +228,7 @@ input[type="text"]:focus {
 .search {
 	display: flex;
 	align-items: center;
-	margin-left: 1rem;
+	/* margin-left: 1rem; */
 }
 
 .search-container {
@@ -236,7 +236,7 @@ input[type="text"]:focus {
     flex-wrap: wrap;
 	align-items: center;
 	margin: 0 auto;
-    width: 70%;
+    width: 80%;
 	justify-content: space-between;
 }
 
