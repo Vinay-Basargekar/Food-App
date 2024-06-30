@@ -1,11 +1,15 @@
 import { FOOD_IMAGES } from "../utils/constants";
 
 const FoodCard = ({
-	resData: { name, avgRating, costForTwo, locality, areaName, cloudinaryImageId },
+	resData: { name, avgRating, costForTwo, locality, areaName, cloudinaryImageId,sla },
 }) => {
 	return (
 		<div className="card">
-			<img className="food-img" src={FOOD_IMAGES + cloudinaryImageId} alt="card-logo" />
+			<img
+				className="food-img"
+				src={FOOD_IMAGES + cloudinaryImageId}
+				alt="card-logo"
+			/>
 			<div className="card-content">
 				<div className="card-title">{name}</div>
 				<div className="card-rating">
@@ -13,8 +17,10 @@ const FoodCard = ({
 					<span>{costForTwo}</span>
 				</div>
 				<div className="card-details">
-					<span>{locality}, {areaName}</span>
-					<span>39 min</span>
+					<span>
+						{locality}, {areaName}
+					</span>
+					<span>{sla.deliveryTime} mins</span>
 				</div>
 			</div>
 		</div>

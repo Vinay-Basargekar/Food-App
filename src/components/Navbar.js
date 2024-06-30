@@ -8,13 +8,13 @@ const Navbar = () => {
 			<div className="nav-right">
 				<div className="nav-tabs">
 					<ul className="nav-list">
-						<Link to={"/"} style={{ textDecoration: "none" }}>
+						<Link to={"/"}>
 							<li className="nav-item">Home</li>
 						</Link>
-						<Link to={"/contact"} style={{ textDecoration: "none" }}>
+						<Link to={"/contact"} >
 							<li className="nav-item">Contact us</li>
 						</Link>
-						<Link to={"/about"} style={{ textDecoration: "none" }}>
+						<Link to={"/about"} >
 							<li className="nav-item">About</li>
 						</Link>
 					</ul>

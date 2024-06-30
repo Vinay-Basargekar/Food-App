@@ -26,6 +26,7 @@ const Restaurant = () => {
 				avgRating: data?.data?.cards[2]?.card?.card?.info?.avgRating,
 				totalRatingsString:
 					data?.data?.cards[2]?.card?.card?.info?.totalRatingsString,
+				deliveryTime: data?.data?.cards[2]?.card?.card?.info?.sla.deliveryTime,
 			};
 
 			const restaurantMenu =
@@ -52,7 +53,7 @@ const Restaurant = () => {
 						<span>
 							{restaurantData.locality}, {restaurantData.areaName}
 						</span>
-						<span>39 min</span>
+						<span>{restaurantData.deliveryTime} mins</span>
 					</div>
 				</div>
 
