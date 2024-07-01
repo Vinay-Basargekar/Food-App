@@ -3,7 +3,6 @@ import Shimmer from "./shimmer";
 import { MENU_API } from "../utils/constants";
 import { useParams } from "react-router-dom";
 
-
 const Restaurant = () => {
 	const [restaurantData, setRestaurantData] = useState(null);
 	const [menu, setMenu] = useState([]);
@@ -15,29 +14,26 @@ const Restaurant = () => {
 	}, []);
 
 	const fetchResData = async () => {
-		try {
-			const response = await fetch(MENU_API + resId);
-			const data = await response.json();
+		const response = await fetch(MENU_API + resId);
+		const data = await response.json();
 
-			const restaurantInfo = {
-				name: data?.data?.cards[2]?.card?.card?.info?.name,
-				locality: data?.data?.cards[2]?.card?.card?.info?.locality,
-				areaName: data?.data?.cards[2]?.card?.card?.info?.areaName,
-				avgRating: data?.data?.cards[2]?.card?.card?.info?.avgRating,
-				totalRatingsString:
-					data?.data?.cards[2]?.card?.card?.info?.totalRatingsString,
-				deliveryTime: data?.data?.cards[2]?.card?.card?.info?.sla.deliveryTime,
-			};
+		const info = data?.data?.cards[2]?.card?.card?.info;
 
-			const restaurantMenu =
-				data.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-					?.card?.itemCards;
-			setMenu(restaurantMenu.map((item) => item.card.info));
+		const restaurantInfo = {
+			name: info?.name,
+			locality: info?.locality,
+			areaName: info?.areaName,
+			avgRating: info?.avgRating,
+			totalRatingsString: info?.totalRatingsString,
+			deliveryTime: info?.sla?.deliveryTime,
+		};
 
-			setRestaurantData(restaurantInfo);
-		} catch (error) {
-			console.error("Error fetching restaurant data: ", error);
-		}
+		const restaurantMenu =
+			data.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
+				?.card?.itemCards;
+
+		setMenu(restaurantMenu.map((item) => item.card.info));
+		setRestaurantData(restaurantInfo);
 	};
 
 	if (!restaurantData) {
