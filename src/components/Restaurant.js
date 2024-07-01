@@ -1,68 +1,48 @@
 import { useEffect, useState } from "react";
 import Shimmer from "./shimmer";
-import { MENU_API } from "../utils/constants";
 import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const Restaurant = () => {
-	const [restaurantData, setRestaurantData] = useState(null);
-	const [menu, setMenu] = useState([]);
-
 	const { resId } = useParams();
+	const resInfo = useRestaurantMenu(resId);
 
-	useEffect(() => {
-		fetchResData();
-	}, []);
-
-	const fetchResData = async () => {
-		const response = await fetch(MENU_API + resId);
-		const data = await response.json();
-
-		const info = data?.data?.cards[2]?.card?.card?.info;
-
-		const restaurantInfo = {
-			name: info?.name,
-			locality: info?.locality,
-			areaName: info?.areaName,
-			avgRating: info?.avgRating,
-			totalRatingsString: info?.totalRatingsString,
-			deliveryTime: info?.sla?.deliveryTime,
-		};
-
-		const restaurantMenu =
-			data.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-				?.card?.itemCards;
-
-		setMenu(restaurantMenu.map((item) => item.card.info));
-		setRestaurantData(restaurantInfo);
-	};
-
-	if (!restaurantData) {
+	if (!resInfo) {
 		return <Shimmer />;
 	}
+
+	const info = resInfo?.cards[2]?.card?.card?.info;
+	const { name, locality, areaName, avgRating, totalRatingsString, sla } =
+		info || {};
+
+	const restaurantMenu =
+		resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.map(
+			(item) => item.card.info
+		) || [];
 
 	return (
 		<div className="res-container">
 			<div className="res-details">
 				<div>
-					<h1>{restaurantData.name}</h1>
+					<h1>{name}</h1>
 					<div className="res-data">
 						<span>
-							{restaurantData.locality}, {restaurantData.areaName}
+							{locality}, {areaName}
 						</span>
-						<span>{restaurantData.deliveryTime} mins</span>
+						<span>{sla?.deliveryTime} mins</span>
 					</div>
 				</div>
 
 				<div className="res-data">
-					<span className="res-rating">{restaurantData.avgRating}★</span>
-					<span>{restaurantData.totalRatingsString} ratings</span>
+					<span className="res-rating">{avgRating}★</span>
+					<span>{totalRatingsString} ratings</span>
 				</div>
 			</div>
 
 			<div className="menu-container">
 				<h1 className="menu-heading">Menu</h1>
 				<div className="menu">
-					{menu.map((item) => (
+					{restaurantMenu.map((item) => (
 						<div className="res-menu" key={item.id}>
 							<img
 								className="food-img"
