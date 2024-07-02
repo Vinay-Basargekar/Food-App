@@ -28,6 +28,7 @@ const Body = () => {
 		fetchData();
 	}, []);
 
+	//custom react hook!
 	const onlineStatus = useOnlineStatus();
 
 	if (onlineStatus === false) {
