@@ -3,11 +3,13 @@ import FoodCard from "./FoodCard";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
 import SearchIcon from "../utils/searchIcon";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
 	const [listOfRestaurants, setListOfRestaurants] = useState([]);
 	const [filteredData, setFilteredData] = useState([]);
 	const [search, setSearch] = useState("");
+
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -25,6 +27,17 @@ const Body = () => {
 		};
 		fetchData();
 	}, []);
+
+	const onlineStatus = useOnlineStatus();
+
+	if (onlineStatus === false) {
+		return (
+			<div className="offline-mode">
+				<h1>Connect to the Internet</h1>
+				<p>You're offline. Check your connection.</p>
+			</div>
+		);
+	}
 
 	return listOfRestaurants.length === 0 ? (
 		<Shimmer />
