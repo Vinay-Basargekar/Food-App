@@ -4,6 +4,7 @@ import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
 import SearchIcon from "../utils/searchIcon";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import foodPark from "../images/foodPark.jpg"
 
 const Body = () => {
 	const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -14,7 +15,7 @@ const Body = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await fetch(
-				"https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+				"https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.528913&lng=73.87441989999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
 			);
 			const data = await response.json();
 			const restaurantCards =
@@ -44,8 +45,21 @@ const Body = () => {
 		<Shimmer />
 	) : (
 		<>
-			<div className="search-container">
-				<div className="search">
+			<div className="hero">
+				<div className="overlay"></div>
+				<img className="hero-img" src={foodPark} alt="hero section" />
+				<div className="hero-content">
+					<h1 className="catch">How can we best serve you?</h1>
+					<div className="search-bar">
+						<input type="text" placeholder="What are you looking for?" />
+						<button type="button">
+							<i className="fa fa-search">
+								<SearchIcon />
+							</i>{" "}
+						</button>
+					</div>
+				</div>
+				{/* <div className="search">
 					<SearchIcon />
 					<input
 						type="text"
@@ -66,7 +80,31 @@ const Body = () => {
 					>
 						Search
 					</button>
-				</div>
+				</div> */}
+			</div>
+			<div className="search-container">
+				{/* <div className="search">
+					<SearchIcon />
+					<input
+						type="text"
+						placeholder="Search..."
+						value={search}
+						onChange={(e) => {
+							setSearch(e.target.value);
+						}}
+					/>
+					<button
+						className="search-btn"
+						onClick={() => {
+							const filtered = listOfRestaurants.filter((res) =>
+								res.name.toLowerCase().includes(search.toLowerCase())
+							);
+							setFilteredData(filtered);
+						}}
+					>
+						Search
+					</button>
+				</div> */}
 				<div className="filter">
 					<button
 						className="filter-btn"

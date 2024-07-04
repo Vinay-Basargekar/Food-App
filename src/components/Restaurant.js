@@ -15,7 +15,7 @@ const Restaurant = () => {
 		info || {};
 
 	const restaurantMenu =
-		resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.map(
+		resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards?.map(
 			(item) => item.card.info
 		) || [];
 
