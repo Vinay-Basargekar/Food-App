@@ -8,7 +8,7 @@ const SearchIcon = () => {
 			viewBox="0 0 24 24"
 			strokeWidth="1.5"
 			stroke="currentColor"
-			className="size"
+			className="w-[24px] h-[24px]"
 		>
 			<path
 				strokeLinecap="round"

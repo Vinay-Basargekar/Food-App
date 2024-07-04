@@ -4,13 +4,12 @@ import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
 import SearchIcon from "../utils/searchIcon";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import foodPark from "../images/foodPark.jpg"
+import foodPark from "../images/foodPark.jpg";
 
 const Body = () => {
 	const [listOfRestaurants, setListOfRestaurants] = useState([]);
 	const [filteredData, setFilteredData] = useState([]);
 	const [search, setSearch] = useState("");
-
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -34,9 +33,9 @@ const Body = () => {
 
 	if (onlineStatus === false) {
 		return (
-			<div className="offline-mode">
-				<h1>Connect to the Internet</h1>
-				<p>You're offline. Check your connection.</p>
+			<div className="flex flex-col items-center justify-center h-screen bg-red-100 text-red-800 text-center p-5 border border-red-200 rounded-lg shadow-md">
+				<h1 className="text-4xl mb-2.5">Connect to the Internet</h1>
+				<p className="text-lg">You're offline. Check your connection.</p>
 			</div>
 		);
 	}
@@ -45,13 +44,19 @@ const Body = () => {
 		<Shimmer />
 	) : (
 		<>
-			<div className="hero">
-				<div className="overlay"></div>
-				<img className="hero-img" src={foodPark} alt="hero section" />
-				<div className="wrapper">
-					<div className="hero-content">
-						<h1 className="catch">How can we best serve you?</h1>
-						<div className="search-bar">
+			<div className="relative">
+				<div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-40 z-10 h-[400px]"></div>
+				<img
+					className="h-[400px] object-cover w-[100%] "
+					src={foodPark}
+					alt="hero section"
+				/>
+				<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+					<div className="">
+						<h1 className="text-5xl text-white p-4 font-bold">
+							How can we best serve you?
+						</h1>
+						<div className="flex content-center justify-center">
 							<input
 								type="text"
 								placeholder="What are you looking for?"
@@ -62,7 +67,7 @@ const Body = () => {
 							/>
 							<button
 								type="button"
-								className="search-btn"
+								className="bg-[#d9534f] hover:bg-[#c9302c] text-white cursor-pointer p-3"
 								onClick={() => {
 									const filtered = listOfRestaurants.filter((res) =>
 										res.name.toLowerCase().includes(search.toLowerCase())
@@ -70,59 +75,13 @@ const Body = () => {
 									setFilteredData(filtered);
 								}}
 							>
-								{/* <i className="fa fa-search"> */}
 								<SearchIcon />
-								{/* </i>{" "} */}
 							</button>
 						</div>
 					</div>
 				</div>
-				{/* <div className="search">
-					<SearchIcon />
-					<input
-						type="text"
-						placeholder="Search..."
-						value={search}
-						onChange={(e) => {
-							setSearch(e.target.value);
-						}}
-					/>
-					<button
-						className="search-btn"
-						onClick={() => {
-							const filtered = listOfRestaurants.filter((res) =>
-								res.name.toLowerCase().includes(search.toLowerCase())
-							);
-							setFilteredData(filtered);
-						}}
-					>
-						Search
-					</button>
-				</div> */}
 			</div>
 			<div className="search-container">
-				{/* <div className="search">
-					<SearchIcon />
-					<input
-						type="text"
-						placeholder="Search..."
-						value={search}
-						onChange={(e) => {
-							setSearch(e.target.value);
-						}}
-					/>
-					<button
-						className="search-btn"
-						onClick={() => {
-							const filtered = listOfRestaurants.filter((res) =>
-								res.name.toLowerCase().includes(search.toLowerCase())
-							);
-							setFilteredData(filtered);
-						}}
-					>
-						Search
-					</button>
-				</div> */}
 				<div className="filter">
 					<button
 						className="filter-btn"

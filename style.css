@@ -1,4 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 *,
 *::before,
 *::after {
@@ -78,7 +84,7 @@ input[type="text"]:focus {
 	box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
 }
 
-.header {
+/* .header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -86,11 +92,10 @@ input[type="text"]:focus {
 	margin: 0 auto;
 	padding: 10px 0;
 	border-bottom: 1px solid #e0e0e0;
-	/* margin-bottom: 2rem; */
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
+} */
 
-.app-logo {
+/* .app-logo {
 	height: 90px;
 }
 
@@ -128,9 +133,9 @@ input[type="text"]:focus {
 
 .nav-item {
 	padding: 0 15px;
-}
+} */
 
-.userLogo {
+/* .userLogo {
 	margin-left: 2rem;
 	cursor: pointer;
 	width: 70px;
@@ -151,7 +156,7 @@ input[type="text"]:focus {
 .size-cart:hover {
 	transform: scale(1.1);
 	cursor: pointer;
-}
+} */
 
 /* FoodCard.css */
 
@@ -230,11 +235,11 @@ input[type="text"]:focus {
 	cursor: pointer;
 }
 
-.size{
+/* .size{
 	color: white;
-}
+} */
 
-.hero {
+/* .hero {
 	position: relative;
 	margin-bottom: 20rem;
 }
@@ -259,7 +264,7 @@ input[type="text"]:focus {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+	background: rgba(0, 0, 0, 0.5);
 	z-index: 1;
 	height: 400px;
 }
@@ -268,14 +273,14 @@ input[type="text"]:focus {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	/* gap: 10px; */
+	
 }
 
 .search-bar input {
 	padding: 10px;
 	font-size: 1em;
 	border: none;
-	/* border-radius: 5px; */
+	
 	width: 20rem;
 }
 
@@ -285,7 +290,7 @@ input[type="text"]:focus {
 	background-color: #d9534f;
 	color: white;
 	border: none;
-	/* border-radius: 5px; */
+	
 	cursor: pointer;
 }
 
@@ -300,10 +305,10 @@ input[type="text"]:focus {
 .hero-content {
 	position: relative;
 	z-index: 2;
-	/* top: 60%; */
+
 	left: 50%;
 	transform: translate(-50%,70%);
-	/* position: absolute; */
+
 }
 
 .catch {
@@ -320,8 +325,7 @@ input[type="text"]:focus {
 	object-fit: cover;
 	position: absolute;
 	z-index: -1;
-	/* opacity: 60%; */
-}
+} */
 
 /* Shimmer effect styling */
 
@@ -601,28 +605,3 @@ a:visited {
 	color: inherit;
 }
 
-/* Online/Offline status */
-
-.offline-mode {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 100vh;
-	background-color: #f8d7da;
-	color: #721c24;
-	text-align: center;
-	padding: 20px;
-	border: 1px solid #f5c6cb;
-	border-radius: 10px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.offline-mode h1 {
-	font-size: 2.5em;
-	margin-bottom: 10px;
-}
-
-.offline-mode p {
-	font-size: 1.2em;
-}
