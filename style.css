@@ -67,7 +67,7 @@ input[type="text"] {
 	width: 20rem;
 	padding: 8px;
 	border: 1px solid #ccc;
-	border-radius: 4px;
+	/* border-radius: 4px; */
 	margin-left: 8px;
 	font-size: 16px;
 	outline: none;
@@ -206,7 +206,7 @@ input[type="text"]:focus {
 }
 
 .filter-btn {
-	background-color: black;
+	background-color: #e6524d;
 	color: white;
 	padding: 10px;
 	border-radius: 4px;
@@ -215,20 +215,28 @@ input[type="text"]:focus {
 	cursor: pointer;
 	margin-right: 1rem;
 }
+
+.filter-btn:hover{
+	background-color: #c9302c;
+}
 .search-btn {
 	background-color: black;
 	color: white;
 	padding: 8px;
 	font-size: 16px;
-	border-radius: 4px;
-	margin: 1rem;
+	/* border-radius: 4px; */
+	/* margin: 1rem; */
 	border: none;
 	cursor: pointer;
 }
 
+.size{
+	color: white;
+}
+
 .hero {
 	position: relative;
-	margin-bottom: 24rem;
+	margin-bottom: 20rem;
 }
 
 .search {
@@ -260,15 +268,15 @@ input[type="text"]:focus {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 10px;
+	/* gap: 10px; */
 }
 
 .search-bar input {
 	padding: 10px;
 	font-size: 1em;
 	border: none;
-	border-radius: 5px;
-	width: 300px;
+	/* border-radius: 5px; */
+	width: 20rem;
 }
 
 .search-bar button {
@@ -277,7 +285,7 @@ input[type="text"]:focus {
 	background-color: #d9534f;
 	color: white;
 	border: none;
-	border-radius: 5px;
+	/* border-radius: 5px; */
 	cursor: pointer;
 }
 

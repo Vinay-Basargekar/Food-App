@@ -48,15 +48,33 @@ const Body = () => {
 			<div className="hero">
 				<div className="overlay"></div>
 				<img className="hero-img" src={foodPark} alt="hero section" />
-				<div className="hero-content">
-					<h1 className="catch">How can we best serve you?</h1>
-					<div className="search-bar">
-						<input type="text" placeholder="What are you looking for?" />
-						<button type="button">
-							<i className="fa fa-search">
+				<div className="wrapper">
+					<div className="hero-content">
+						<h1 className="catch">How can we best serve you?</h1>
+						<div className="search-bar">
+							<input
+								type="text"
+								placeholder="What are you looking for?"
+								value={search}
+								onChange={(e) => {
+									setSearch(e.target.value);
+								}}
+							/>
+							<button
+								type="button"
+								className="search-btn"
+								onClick={() => {
+									const filtered = listOfRestaurants.filter((res) =>
+										res.name.toLowerCase().includes(search.toLowerCase())
+									);
+									setFilteredData(filtered);
+								}}
+							>
+								{/* <i className="fa fa-search"> */}
 								<SearchIcon />
-							</i>{" "}
-						</button>
+								{/* </i>{" "} */}
+							</button>
+						</div>
 					</div>
 				</div>
 				{/* <div className="search">
