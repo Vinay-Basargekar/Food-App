@@ -14,7 +14,7 @@ const Body = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await fetch(
-				"https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.528913&lng=73.87441989999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+				"https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.6700628&lng=73.73160419999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
 			);
 			const data = await response.json();
 			const restaurantCards =
@@ -44,7 +44,7 @@ const Body = () => {
 		<Shimmer />
 	) : (
 		<>
-			<div className="relative">
+			<div className="relative w-full h-[400px] ">
 				<div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-40 z-10 h-[400px]"></div>
 				<img
 					className="h-[400px] object-cover w-[100%] "
@@ -60,6 +60,7 @@ const Body = () => {
 							<input
 								type="text"
 								placeholder="What are you looking for?"
+								className="w-[50%] p-[8px]"
 								value={search}
 								onChange={(e) => {
 									setSearch(e.target.value);
@@ -82,9 +83,9 @@ const Body = () => {
 				</div>
 			</div>
 			<div className="search-container">
-				<div className="filter">
+				<div className="filter flex justify-between items-center w-[80%] mx-auto">
 					<button
-						className="filter-btn"
+						className="filter-btn bg-[#d9534f] hover:bg-[#c9302c] text-white p-3 m-4 rounded"
 						onClick={() => {
 							const filteredDat = listOfRestaurants.filter(
 								(res) => res.avgRating > 4.3
@@ -96,7 +97,7 @@ const Body = () => {
 					</button>
 				</div>
 			</div>
-			<div className="card-container">
+			<div className="flex flex-wrap justify-center">
 				{filteredData.map((res) => (
 					<Link key={res.id} to={"./restaurants/" + res.id}>
 						<FoodCard resData={res} />

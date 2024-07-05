@@ -12,9 +12,9 @@ import Restaurant from "./components/Restaurant";
 
 const FoodApp = () => {
 	return (
-		<div className="foodApp">
+		<div className="foodApp w-full h-[400px] font-myFont">
 			<Navbar />
-			<Outlet/>
+			<Outlet />
 		</div>
 	);
 };
