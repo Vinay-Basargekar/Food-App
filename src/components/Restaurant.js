@@ -19,6 +19,8 @@ const Restaurant = () => {
 			(item) => item.card.info
 		) || [];
 
+		console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR);
+
 	return (
 		<div className="w-[80%] mx-auto p-4 bg-gray-100">
 			<div className="flex justify-between items-center mb-4 pb-4 border-b border-gray-300">
