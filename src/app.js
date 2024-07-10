@@ -9,13 +9,19 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import Restaurant from "./components/Restaurant";
 
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
+
 
 const FoodApp = () => {
 	return (
-		<div className="foodApp w-full h-[400px] font-myFont">
-			<Navbar />
-			<Outlet />
-		</div>
+		<Provider store={appStore}>
+			<div className="foodApp w-full h-[400px] font-myFont">
+				<Navbar />
+				<Outlet />
+			</div>
+		</Provider>
 	);
 };
 
@@ -41,6 +47,10 @@ const BrowserRouter = createBrowserRouter([
 				path: "/restaurants/:resId",
 				element: <Restaurant />,
 			},
+			{
+				path:"/Cart",
+				element:<Cart/>
+			}
 		],
 	},
 ]);

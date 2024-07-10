@@ -1,7 +1,17 @@
-const MenuCategoryList = ({items}) => {
-    // console.log(items);
+import { useDispatch} from "react-redux";
+import { addItems } from "../utils/cartSlice";
+
+const MenuCategoryList = ({ items }) => {
+
+	const dispatch = useDispatch();
+
+	const handleAddItems = (item) => {
+		//Dispatch an action
+		dispatch(addItems(item));
+	}
+
 	return (
-		<div >
+		<div>
 			{items.map((item) => (
 				<div
 					key={item.card.info.id}
@@ -15,7 +25,10 @@ const MenuCategoryList = ({items}) => {
 						<p className="text-gray-500 text-sm w-11/12">
 							{item.card.info.description}
 						</p>
-						<button className="bg-[#d9534f] hover:bg-[#c9302c] text-white px-4 py-2 my-2 rounded">
+						<button
+							className="bg-[#d9534f] hover:bg-[#c9302c] text-white px-4 py-2 my-2 rounded"
+							onClick={()=>handleAddItems(item)}
+						>
 							Add
 						</button>
 					</div>

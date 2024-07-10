@@ -3,8 +3,13 @@ import { Link } from "react-router-dom";
 import { APP_LOGO } from "../utils/constants";
 import CartIcon from "../utils/cartIcon";
 import UserIcon from "../utils/userIcon";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+
+	const cartCount = useSelector((state) => state.cart.items.length);
+	// console.log(cartCount);
+
 	return (
 		<div className="flex justify-between items-center w-[80%] mx-auto ">
 			<img src={APP_LOGO} alt="app-logo" className="app-logo w-32" />
@@ -30,8 +35,17 @@ const Navbar = () => {
 							<li className="p-4">About</li>
 						</Link>
 					</ul>
-					<CartIcon />
-					<UserIcon  />
+					<div className="relative">
+						{cartCount > 0 && (
+							<span className="absolute top-0 right-0 bg-red-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+								{cartCount}
+							</span>
+						)}
+						<Link to="/Cart">
+							<CartIcon />
+						</Link>
+					</div>
+					<UserIcon />
 				</div>
 			</div>
 		</div>
