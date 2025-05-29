@@ -1,62 +1,74 @@
 import React from "react";
+import {
+	FaLinkedin,
+	FaGithub,
+	FaTwitter,
+	FaEnvelope,
+	FaPhone,
+} from "react-icons/fa";
 
 const About = () => {
 	return (
-		<div className="about-container">
-			<h1>About Us</h1>
-			<p>
-				Welcome to YourWebsiteName! We are passionate about creating
-				high-quality web applications that make your life easier. Our team is
-				dedicated to delivering innovative solutions and exceptional user
-				experiences.
+		<div className="max-w-5xl mx-auto px-6 py-12">
+			<h1 className="text-4xl font-bold mb-6 text-center text-[#d9534f]">
+				About Foodyfy
+			</h1>
+
+			<p className="text-lg text-gray-700 mb-8 text-center">
+				Welcome to <span className="font-semibold">Foodyfy</span> – your
+				one-stop platform for exploring and ordering the best dishes from local
+				Indian restaurants. Whether it's spicy street food from Delhi or
+				traditional thalis from Maharashtra, we bring the **flavours of India**
+				to your fingertips.
 			</p>
-			<h2>Our Mission</h2>
-			<p>
-				Our mission is to provide cutting-edge technology solutions that empower
-				individuals and businesses to achieve their goals. We strive to create
-				products that are not only functional but also intuitive and enjoyable
-				to use.
+
+			<h2 className="text-2xl font-semibold mb-3 text-[#d9534f]">
+				Our Mission
+			</h2>
+			<p className="text-gray-700 mb-6">
+				Our mission is to empower local eateries and street vendors across India
+				by providing them with a digital platform. We believe great food should
+				be accessible, and our aim is to connect hungry foodies with
+				hard-working chefs through a seamless and joyful experience.
 			</p>
-			<h2>Contact Us</h2>
-			<p>
-				Have questions or feedback? We'd love to hear from you! You can reach us
-				at:
-			</p>
-			<ul>
-				<li>Email: contact@yourwebsite.com</li>
-				<li>Phone: +123 456 7890</li>
+
+			<h2 className="text-2xl font-semibold mb-3 text-[#d9534f]">
+				Why Choose Us?
+			</h2>
+			<ul className="list-disc list-inside text-gray-700 mb-6 space-y-2">
+				<li>Curated list of top-rated Indian restaurants</li>
+				<li>Real-time order tracking and reliable delivery</li>
+				<li>Friendly support team and transparent pricing</li>
+				<li>Local, seasonal, and sustainable food options</li>
 			</ul>
-			<h2>Follow Us</h2>
-			<p>Stay connected and follow us on our social media channels:</p>
-			<ul>
-				<li>
-					<a
-						href="https://www.linkedin.com/in/yourprofile"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						LinkedIn
-					</a>
-				</li>
-				<li>
-					<a
-						href="https://github.com/yourprofile"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						GitHub
-					</a>
-				</li>
-				<li>
-					<a
-						href="https://twitter.com/yourprofile"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Twitter
-					</a>
-				</li>
-			</ul>
+
+			<h2 className="text-2xl font-semibold mb-3 text-[#d9534f]">Contact Us</h2>
+			<p className="text-gray-700 mb-2 flex items-center gap-2">
+				<FaEnvelope className="text-[#d9534f]" /> support@swadsagar.in
+			</p>
+			<p className="text-gray-700 mb-6 flex items-center gap-2">
+				<FaPhone className="text-[#d9534f]" /> +91 98765 43210
+			</p>
+
+			<h2 className="text-2xl font-semibold mb-3 text-[#d9534f]">Follow Us</h2>
+			<div className="flex space-x-6">
+				<a
+					href="https://www.linkedin.com/in/vinay-basargekar/"
+					target="_blank"
+					rel="noreferrer"
+					className="text-[#0077b5] hover:underline flex items-center gap-1"
+				>
+					<FaLinkedin /> LinkedIn
+				</a>
+				<a
+					href="https://github.com/Vinay-Basargekar"
+					target="_blank"
+					rel="noreferrer"
+					className="text-black hover:underline flex items-center gap-1"
+				>
+					<FaGithub /> GitHub
+				</a>
+			</div>
 		</div>
 	);
 };
